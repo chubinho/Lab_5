@@ -77,12 +77,12 @@ def run_simulation(steps: int = 20, seed: int | None = None) -> None:
                     author = random.choice(list(library.index.author.keys()))
                     books = library.find_by_author(author)
                     print(
-                        f"Поиск по автору \"{author}\": найдено {len(books)} книг(и)")
+                        f"Поиск по автору '{author}': найдено {len(books)} книг(и)")
                 elif choice == "genre":
                     genre = random.choice(genres)
                     books = library.find_by_genre(genre)
                     print(
-                        f"Поиск по жанру \"{genre}\": найдено {len(books)} книг(и)")
+                        f"Поиск по жанру '{genre}': найдено {len(books)} книг(и)")
                 elif choice == "year" and library.index.year:
                     year = random.choice(list(library.index.year.keys()))
                     books = library.find_by_year(year)
@@ -99,14 +99,11 @@ def run_simulation(steps: int = 20, seed: int | None = None) -> None:
                 try:
                     library.find_by_isbn(fake_isbn)
                     print(
-                        f"ОШИБКА: найдена несуществующая книга с ISBN {fake_isbn}")
+                        f"найдена несуществующая книга с ISBN {fake_isbn}")
                 except KeyError:
                     print(
-                        f"Попытка найти несуществующую книгу (ISBN: {fake_isbn}) — не найдена")
+                        f"Попытка найти несуществующую книгу (ISBN: {fake_isbn}) - не найдена")
 
         except Exception as e:
             print(f"Ошибка: {e}")
     print("Симуляция завершена")
-
-
-run_simulation()
