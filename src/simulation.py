@@ -107,4 +107,6 @@ def run_simulation(steps: int = 20, seed: int | None = None) -> None:
         except Exception as e:
             print(f"Ошибка: {e}")
     print("Симуляция завершена")
+
+
 run_simulation()
