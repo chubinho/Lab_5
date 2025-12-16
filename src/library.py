@@ -1,6 +1,6 @@
 from book_collection import BookCollection
-from index_dict import IndexDict
-from book import Book
+from src.index_dict import IndexDict
+from src.book import Book
 
 
 class Library:
@@ -16,7 +16,7 @@ class Library:
 
     def remove_book(self, isbn: str) -> None:
         try:
-            book = self.index[isbn]
+            book: Book = self.index[isbn]
             self.index.remove_book(book)
 
             for i, b in enumerate(self.books):
@@ -27,13 +27,16 @@ class Library:
             print("Книга не найдена")
 
     def find_by_isbn(self, isbn: str) -> Book:
-        return self.index[isbn]
+        book: Book = self.index[isbn]
+        return book
 
     def find_by_author(self, author: str) -> list[Book]:
-        return self.index[author]
+        books: list[Book] = self.index[author]
+        return books
 
     def find_by_year(self, year: int) -> list[Book]:
-        return self.index[year]
+        books: list[Book] = self.index[year]
+        return books
 
     def find_by_genre(self, genre: str):
         return [book for book in self.books if book.genre == genre]

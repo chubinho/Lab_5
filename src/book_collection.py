@@ -1,5 +1,5 @@
 from typing import Union
-from book import Book
+from src.book import Book
 
 
 class BookCollection:

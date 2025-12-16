@@ -1,6 +1,6 @@
 import random
-from book import NonFictionBook, FictionBook
-from library import Library
+from src.book import NonFictionBook, FictionBook
+from src.library import Library
 
 
 titles = ["Хоббит", "Преступление и наказание",
@@ -67,7 +67,7 @@ def run_simulation(steps: int = 20, seed: int | None = None) -> None:
                     print("Нет книг для удаления")
                 else:
                     isbn = random.choice(list(library.index.ISBN.keys()))
-                    title = library.index[isbn].title
+                    title = library.find_by_isbn(isbn).title
                     library.remove_book(isbn)
                     print(f'Удалена книга: "{title}"')
 

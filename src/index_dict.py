@@ -1,5 +1,5 @@
 from typing import Union
-from book import Book
+from src.book import Book
 
 
 class IndexDict:
@@ -39,16 +39,16 @@ class IndexDict:
             if key in self.year:
                 return self.year[key]
             else:
-                raise KeyError(key)
+                raise KeyError("Данные по переданному ключу не найдены")
         elif isinstance(key, str):
             if key in self.ISBN:
                 return self.ISBN[key]
             elif key in self.author:
                 return self.author[key]
             else:
-                raise KeyError(key)
+                raise KeyError("Данные по переданному ключу не найдены")
         else:
-            raise KeyError(key)
+            raise KeyError("Передан неверный ключ")
 
     def __len__(self):
         return len(self.ISBN)
