@@ -1,4 +1,4 @@
-from book_collection import BookCollection
+from src.book_collection import BookCollection
 from src.index_dict import IndexDict
 from src.book import Book
 
