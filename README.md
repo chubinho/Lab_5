@@ -30,3 +30,13 @@ Lab_4
 └─ uv.lock
 
 ```
+
+## Запуск симуляции
+```python src\simulation.py```
+
+## Запуск Cli
+``` src\main.py```
+
+## Запуск тестов
+1) Предустановка ```pip install pytest```
+2) Для подробного вывода - ```pytest -v```
