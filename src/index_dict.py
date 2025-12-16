@@ -5,9 +5,8 @@ from book import Book
 class IndexDict:
     def __init__(self) -> None:
         self.ISBN: dict[str, Book] = {}
-        self.year: dict[int, Book] = {}
+        self.year: dict[int, list[Book]] = {}
         self.author: dict[str, list[Book]] = {}
-        self.genre: dict[str, list[Book]] = {}
 
     def add_book(self, book: Book) -> None:
         self.ISBN[book.isbn] = book
@@ -22,10 +21,6 @@ class IndexDict:
         else:
             self.year[book.year] = [book]
 
-        if book.genre in self.genre:
-            self.genre[book.genre].append(book)
-        else:
-            self.genre[book.year] = [book]
 
     def remove_book(self, book: Book) -> None:
         del self.ISBN[book.isbn]
@@ -38,9 +33,6 @@ class IndexDict:
         if not self.year[book.year]:
             del self.year[book.year]
 
-        self.genre[book.genre].remove(book)
-        if not self.genre[book.genre]:
-            del self.genre[book.genre]
 
     def __getitem__(self, key: Union[int, str]) -> Union[Book, list[Book]]:
         if isinstance(key, int):
@@ -57,3 +49,9 @@ class IndexDict:
                 raise KeyError(key)
         else:
             raise KeyError(key)
+
+    def __len__(self):
+        return len(self.ISBN)
+
+    def __contains__(self, isbn: str) -> bool:
+        return isbn in self.ISBN

@@ -6,7 +6,7 @@ class BookCollection:
     def __init__(self) -> None:
         self.books: list = []
 
-    def __getitem__(self, index: Union[int,slice]) -> Union[Book, list[Book]]:
+    def __getitem__(self, index: Union[int, slice]) -> Union[Book, list[Book]]:
         if isinstance(index, int):
             return self.books[index]
         elif isinstance(index, slice):
@@ -29,3 +29,6 @@ class BookCollection:
 
     def __delitem__(self, index: int) -> None:
         del self.books[index]
+
+    def __contains__(self, book: Book) -> bool:
+        return book in self.books

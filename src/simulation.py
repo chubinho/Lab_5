@@ -25,7 +25,7 @@ def generate_book():
 
     if title == "Краткая история времени" or title == "Большая советская экономика":
         """
-        Проверяем, является ли книга худ. литературойы
+        Проверяем, является ли книга худ. литературой
         """
         return NonFictionBook(title, author, year, genre, isbn, pages)
     else:
@@ -107,3 +107,4 @@ def run_simulation(steps: int = 20, seed: int | None = None) -> None:
         except Exception as e:
             print(f"Ошибка: {e}")
     print("Симуляция завершена")
+run_simulation()
