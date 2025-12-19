@@ -1,6 +1,6 @@
 import shlex
-from src.library import Library
-from src.book import FictionBook, NonFictionBook
+from library import Library
+from book import FictionBook, NonFictionBook
 
 
 def main():

@@ -1,5 +1,5 @@
 from typing import Union
-from src.book import Book
+from book import Book
 
 
 class IndexDict:

@@ -1,6 +1,6 @@
-from src.book_collection import BookCollection
-from src.index_dict import IndexDict
-from src.book import Book
+from book_collection import BookCollection
+from index_dict import IndexDict
+from book import Book
 
 
 class Library:
@@ -9,10 +9,10 @@ class Library:
         self.index: IndexDict = IndexDict()
 
     def add_book(self, book: Book) -> None:
-        if book.isbn in self.index.ISBN:
-            return
-        self.books.append(book)
-        self.index.add_book(book)
+        if book.isbn not in self.index.ISBN:
+            self.books.append(book)
+            self.index.add_book(book)
+        
 
     def remove_book(self, isbn: str) -> None:
         try:
@@ -38,5 +38,5 @@ class Library:
         books: list[Book] = self.index[year]
         return books
 
-    def find_by_genre(self, genre: str):
-        return [book for book in self.books if book.genre == genre]
+    def find_by_genre(self, genre: str) -> list[Book]:   
+      return [book for book in self.books if book.genre == genre]
