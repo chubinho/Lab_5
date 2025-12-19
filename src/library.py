@@ -38,5 +38,5 @@ class Library:
         books: list[Book] = self.index[year]
         return books
 
-    def find_by_genre(self, genre: str) -> list[Book]:   
-      return [book for book in self.books if book.genre == genre]
+    def find_by_genre(self, genre: str) -> list[Book]:
+        return [book for book in self.books if book.genre == genre]
